@@ -37,6 +37,11 @@ public class Listado extends AppCompatActivity {
 
     private void crearListado(){
 
+        listadoTrabajadores.add(new Trabajador("prueba","45454","prueba"));
+
+        Adaptador adapatador= new Adaptador(listadoTrabajadores);
+        listado.setAdapter(adapatador);
+
 
     }
 
