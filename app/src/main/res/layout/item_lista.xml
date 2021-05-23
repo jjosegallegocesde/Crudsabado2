@@ -11,13 +11,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/itemFoto"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:text="PRUEBA"
+            android:textSize="24sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <TextView
             android:id="@+id/itemNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="PRUEBA"
             android:textSize="24sp"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/itemFoto"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 

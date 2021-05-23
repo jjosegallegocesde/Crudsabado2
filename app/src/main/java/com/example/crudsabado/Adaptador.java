@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class Adaptador extends RecyclerView.Adapter<Adaptador.viewHolder> {
@@ -52,6 +54,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.viewHolder> {
             nombre=itemView.findViewById(R.id.itemNombre);
             cedula=itemView.findViewById(R.id.itemCedula);
             cargo=itemView.findViewById(R.id.itemCargo);
+            foto=itemView.findViewById(R.id.itemFoto);
 
         }
 
@@ -60,6 +63,10 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.viewHolder> {
             nombre.setText(trabajador.getNombre());
             cedula.setText(trabajador.getCedula());
             cargo.setText(trabajador.getCargo());
+
+            Picasso.with(itemView.getContext())
+                    .load(trabajador.getFotoURL())
+                    .into(foto);
 
 
         }

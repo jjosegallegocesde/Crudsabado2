@@ -2,12 +2,13 @@ package com.example.crudsabado;
 
 public class Trabajador {
 
-    String nombre,cedula,cargo;
+    String nombre,cedula,cargo,fotoURL;
 
-    public Trabajador(String nombre, String cedula, String cargo) {
+    public Trabajador(String nombre, String cedula, String cargo, String fotoURL) {
         this.nombre = nombre;
         this.cedula = cedula;
         this.cargo = cargo;
+        this.fotoURL = fotoURL;
     }
 
     public String getNombre() {
@@ -34,6 +35,12 @@ public class Trabajador {
         this.cargo = cargo;
     }
 
+    public String getFotoURL() {
+        return fotoURL;
+    }
 
+    public void setFotoURL(String fotoURL) {
+        this.fotoURL = fotoURL;
+    }
 }
 

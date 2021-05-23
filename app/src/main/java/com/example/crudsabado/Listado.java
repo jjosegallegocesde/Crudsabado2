@@ -37,10 +37,43 @@ public class Listado extends AppCompatActivity {
 
     private void crearListado(){
 
-        listadoTrabajadores.add(new Trabajador("prueba","45454","prueba"));
 
-        Adaptador adapatador= new Adaptador(listadoTrabajadores);
-        listado.setAdapter(adapatador);
+        baseDatos.collection("empleados")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                        if(task.isSuccessful()){
+
+                            for(QueryDocumentSnapshot document: task.getResult()){
+
+                                String nombre=document.get("nombre").toString();
+                                String cedula=document.get("cedula").toString();
+                                String cargo=document.get("cargo").toString();
+                                String foto=document.get("foto").toString();
+
+                                listadoTrabajadores.add(new Trabajador(nombre,cedula,cargo,foto));
+
+                            }
+                            Adaptador adapatador= new Adaptador(listadoTrabajadores);
+                            listado.setAdapter(adapatador);
+
+                        }else{
+
+                            Toast.makeText(getApplicationContext(),"Error consultando datos",Toast.LENGTH_LONG).show();
+
+                        }
+
+                    }
+                });
+
+
+
+
+
+
+
 
 
     }
